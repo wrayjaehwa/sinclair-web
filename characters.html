@@ -14,16 +14,15 @@
       * {
         box-sizing: border-box;
       }
+
       body {
         margin: 0;
         font-family: 'Georgia', 'Times New Roman', serif;
         background: radial-gradient(circle at top, #222, var(--deco-black));
         color: var(--deco-cream);
-        display: flex;
         min-height: 100vh;
-        align-items: center;
-        justify-content: center;
       }
+
       .shell {
         min-height: 100vh;
         display: flex;
@@ -36,8 +35,8 @@
         background: var(--deco-cream);
         color: var(--deco-black);
         width: 100%;
-        max-width: 900px;
-        padding: 2.5rem 3rem 2.4rem;
+        max-width: 1100px;
+        padding: 2.5rem 3rem 2.5rem;
         position: relative;
         box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
         margin: 0 1rem;
@@ -71,7 +70,7 @@
       }
 
       h1 {
-        font-size: 1.8rem;
+        font-size: 1.9rem;
         letter-spacing: 0.14em;
         text-transform: uppercase;
         margin: 0.35rem 0 0.25rem;
@@ -92,6 +91,7 @@
         background: var(--deco-gold);
         margin: 0.4rem auto;
       }
+
       .top-line {
         width: 70%;
       }
@@ -106,7 +106,8 @@
         padding: 0.4rem 0;
         display: flex;
         justify-content: center;
-        gap: 2.5rem;
+        gap: 2rem;
+        flex-wrap: wrap;
       }
 
       nav a {
@@ -135,7 +136,7 @@
       }
 
       main {
-        margin-top: 1.1rem;
+        margin-top: 1rem;
         font-size: 0.95rem;
       }
 
@@ -162,124 +163,133 @@
         letter-spacing: 0.08em;
         text-transform: uppercase;
       }
+      .name-x {
+        font-family: 'Trebuchet MS', Arial, sans-serif;
+        font-size: 0.9rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        /* red strikethrough */
+        text-decoration-line: line-through;
+        text-decoration-color: red;
+        text-decoration-thickness: 2px; /* optional: thicker line */
+      }
 
       .role {
         font-size: 0.9rem;
         color: var(--deco-muted);
       }
 
-      @media (max-width: 640px) {
+      @media (max-width: 800px) {
         .page {
-          padding: 2rem 1.4rem 1.7rem;
-        }
-        h1 {
-          font-size: 1.5rem;
+          padding: 2.2rem 1.6rem 2rem;
         }
       }
     </style>
   </head>
   <body>
-    <div class="page">
-      <header>
-        <div class="eyebrow">Sinclair House • Guest Index</div>
-        <div class="top-line"></div>
-        <h1>Characters</h1>
-        <h2>Rivals, Family, &amp; Associates</h2>
-        <div class="mid-line"></div>
+    <div class="shell">
+      <div class="page">
+        <header>
+          <div class="eyebrow">Sinclair House • Guest Index</div>
+          <div class="top-line"></div>
+          <h1>Characters</h1>
+          <h2>Rivals, Family, &amp; Associates</h2>
+          <div class="mid-line"></div>
 
-        <nav>
-          <a href="index.html">Home</a>
-          <a href="vault.html">Vault</a>
-          <a href="characters.html">Characters</a>
-          <a href="menu.html">Menu</a>
-        </nav>
-      </header>
+          <nav>
+            <a href="index.html">Home</a>
+            <a href="vault.html">Vault</a>
+            <a href="characters.html">Characters</a>
+            <a href="menu.html">Menu</a>
+          </nav>
+        </header>
 
-      <main>
-        <p class="note">
-          Names and principal occupations for the guests and staff of Sinclair
-          House on the night in question.
-        </p>
+        <main>
+          <p class="note">
+            Names and principal occupations for the guests and staff of Sinclair
+            House on the night in question.
+          </p>
 
-        <div class="list">
-          <div class="entry">
-            <div class="name">John M Mercer</div>
-            <div class="role">Rival investor</div>
+          <div class="list">
+            <div class="entry">
+              <div class="name">John M Mercer</div>
+              <div class="role">Rival investor</div>
+            </div>
+            <div class="entry">
+              <div class="name">Surya Pike</div>
+              <div class="role">Former business partner</div>
+            </div>
+            <div class="entry">
+              <div class="name">Tim Vane</div>
+              <div class="role">Transport magnate</div>
+            </div>
+            <div class="entry">
+              <div class="name">Jon Finch</div>
+              <div class="role">Banker</div>
+            </div>
+            <div class="entry">
+              <div class="name-x">Kian Russo</div>
+              <div class="role">Nightclub owner / bootlegger</div>
+            </div>
+            <div class="entry">
+              <div class="name">Peter Marlowe</div>
+              <div class="role">Import broker / smuggler</div>
+            </div>
+            <div class="entry">
+              <div class="name">Robert Doyle</div>
+              <div class="role">Fixer / bookmaker</div>
+            </div>
+            <div class="entry">
+              <div class="name">Gabe Quinn</div>
+              <div class="role">Enforcer / muscle</div>
+            </div>
+            <div class="entry">
+              <div class="name">Christos Whitlock</div>
+              <div class="role">State senator</div>
+            </div>
+            <div class="entry">
+              <div class="name">Joel Bellamy</div>
+              <div class="role">Mayor</div>
+            </div>
+            <div class="entry">
+              <div class="name">Kelly Hart</div>
+              <div class="role">Journalist</div>
+            </div>
+            <div class="entry">
+              <div class="name">Julian Sinclair</div>
+              <div class="role">Brother of J.W. Sinclair</div>
+            </div>
+            <div class="entry">
+              <div class="name">Ryan Sinclair</div>
+              <div class="role">Estranged Sinclair child</div>
+            </div>
+            <div class="entry">
+              <div class="name">Patrick Vale</div>
+              <div class="role">Family doctor</div>
+            </div>
+            <div class="entry">
+              <div class="name">John R Graves</div>
+              <div class="role">Butler</div>
+            </div>
+            <div class="entry">
+              <div class="name">William Holloway</div>
+              <div class="role">Housekeeper</div>
+            </div>
+            <div class="entry">
+              <div class="name">Jayson Ashford</div>
+              <div class="role">Chauffeur</div>
+            </div>
+            <div class="entry">
+              <div class="name">William Rowe</div>
+              <div class="role">Bartender</div>
+            </div>
+            <div class="entry">
+              <div class="name">John Mercer</div>
+              <div class="role">Club patron &amp; investor</div>
+            </div>
           </div>
-          <div class="entry">
-            <div class="name">Surya Pike</div>
-            <div class="role">Former business partner</div>
-          </div>
-          <div class="entry">
-            <div class="name">Tim Vane</div>
-            <div class="role">Transport magnate</div>
-          </div>
-          <div class="entry">
-            <div class="name">Jon Finch</div>
-            <div class="role">Banker</div>
-          </div>
-          <div class="entry">
-            <div class="name">Kian Russo</div>
-            <div class="role">Nightclub owner / bootlegger</div>
-          </div>
-          <div class="entry">
-            <div class="name">Peter Marlowe</div>
-            <div class="role">Import broker / smuggler</div>
-          </div>
-          <div class="entry">
-            <div class="name">Robert Doyle</div>
-            <div class="role">Fixer / bookmaker</div>
-          </div>
-          <div class="entry">
-            <div class="name">Gabe Quinn</div>
-            <div class="role">Enforcer / muscle</div>
-          </div>
-          <div class="entry">
-            <div class="name">Christos Whitlock</div>
-            <div class="role">State senator</div>
-          </div>
-          <div class="entry">
-            <div class="name">Joel Bellamy</div>
-            <div class="role">Mayor</div>
-          </div>
-          <div class="entry">
-            <div class="name">Kelly Hart</div>
-            <div class="role">Journalist</div>
-          </div>
-          <div class="entry">
-            <div class="name">Julian Sinclair</div>
-            <div class="role">Brother of J.W. Sinclair</div>
-          </div>
-          <div class="entry">
-            <div class="name">Ryan Sinclair</div>
-            <div class="role">Estranged Sinclair child</div>
-          </div>
-          <div class="entry">
-            <div class="name">Patrick Vale</div>
-            <div class="role">Family doctor</div>
-          </div>
-          <div class="entry">
-            <div class="name">John R Graves</div>
-            <div class="role">Butler</div>
-          </div>
-          <div class="entry">
-            <div class="name">William Holloway</div>
-            <div class="role">Housekeeper</div>
-          </div>
-          <div class="entry">
-            <div class="name">Jayson Ashford</div>
-            <div class="role">Chauffeur</div>
-          </div>
-          <div class="entry">
-            <div class="name">William Rowe</div>
-            <div class="role">Bartender</div>
-          </div>
-          <div class="entry">
-            <div class="name">John Mercer</div>
-            <div class="role">Club patron &amp; investor</div>
-          </div>
-        </div>
-      </main>
+        </main>
+      </div>
     </div>
   </body>
 </html>
