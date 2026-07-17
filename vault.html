@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sinclair House – Private Ledger Vault</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+      :root {
+        --deco-black: #111111;
+        --deco-gold: #d4a537;
+        --deco-cream: #f6f0de;
+        --deco-muted: #6b5b3e;
+      }
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: 'Georgia', 'Times New Roman', serif;
+        background: radial-gradient(circle at top, #222, var(--deco-black));
+        color: var(--deco-cream);
+        min-height: 100vh;
+      }
+
+      .shell {
+        min-height: 100vh;
+        display: flex;
+        align-items: stretch;
+        justify-content: center;
+        padding: 2rem 0;
+      }
+
+      .page {
+        background: var(--deco-cream);
+        color: var(--deco-black);
+        width: 100%;
+        max-width: 900px;
+        padding: 2.5rem 3rem 2.4rem;
+        position: relative;
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+        margin: 0 1rem;
+      }
+
+      .page::before,
+      .page::after {
+        content: '';
+        position: absolute;
+        inset: 0.6rem;
+        border: 2px solid var(--deco-gold);
+        pointer-events: none;
+      }
+
+      .page::after {
+        inset: 1.1rem;
+        border-width: 1px;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 1.4rem;
+      }
+
+      .eyebrow {
+        font-family: 'Trebuchet MS', Arial, sans-serif;
+        letter-spacing: 0.2em;
+        font-size: 0.75rem;
+        color: var(--deco-muted);
+        text-transform: uppercase;
+      }
+
+      h1 {
+        font-size: 1.9rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        margin: 0.35rem 0 0.25rem;
+      }
+
+      h2 {
+        font-family: 'Trebuchet MS', Arial, sans-serif;
+        font-size: 0.9rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--deco-muted);
+        margin: 0.1rem 0;
+      }
+
+      .top-line,
+      .mid-line {
+        height: 1px;
+        background: var(--deco-gold);
+        margin: 0.4rem auto;
+      }
+
+      .top-line {
+        width: 70%;
+      }
+      .mid-line {
+        width: 55%;
+      }
+
+      nav {
+        margin: 1.2rem auto 0.8rem;
+        border-top: 1px solid var(--deco-gold);
+        border-bottom: 1px solid var(--deco-gold);
+        padding: 0.4rem 0;
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        font-family: 'Trebuchet MS', Arial, sans-serif;
+        font-size: 0.85rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        text-decoration: none;
+        color: var(--deco-black);
+        position: relative;
+      }
+
+      nav a::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -0.15rem;
+        width: 0;
+        height: 1px;
+        background: var(--deco-gold);
+        transition: width 0.2s ease-out;
+      }
+
+      nav a:hover::after {
+        width: 100%;
+      }
+
+      main {
+        margin-top: 1rem;
+        font-size: 0.96rem;
+        line-height: 1.6;
+      }
+
+      .intro p {
+        margin: 0.4rem 0;
+      }
+
+      .label {
+        text-transform: uppercase;
+        font-family: 'Trebuchet MS', Arial, sans-serif;
+        letter-spacing: 0.15em;
+        font-size: 0.8rem;
+        color: var(--deco-muted);
+        margin-bottom: 0.35rem;
+      }
+
+      .vault-panel {
+        border-top: 1px solid var(--deco-gold);
+        border-bottom: 1px solid var(--deco-gold);
+        padding: 1.4rem 0;
+        margin: 1.3rem 0 1.4rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+      }
+
+      .code-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 0.75rem;
+        justify-content: space-between;
+      }
+
+      .code {
+        font-family: 'Courier New', monospace;
+        font-size: 2rem;
+        letter-spacing: 0.25em;
+        color: var(--deco-gold);
+        background: #1b1812;
+        padding: 0.4rem 0.9rem;
+        border: 1px solid var(--deco-gold);
+        text-align: center;
+        min-width: 210px;
+      }
+
+      .code-caption {
+        flex: 1 1 220px;
+        font-size: 0.9rem;
+        color: var(--deco-muted);
+      }
+
+      .note {
+        font-size: 0.85rem;
+        color: var(--deco-muted);
+        margin-top: 0.6rem;
+      }
+
+      .signature {
+        margin-top: 1.8rem;
+        border-top: 1px solid rgba(0, 0, 0, 0.15);
+        padding-top: 1.1rem;
+        font-size: 0.9rem;
+      }
+
+      .signature .name {
+        text-transform: uppercase;
+        letter-spacing: 0.18em;
+        margin-bottom: 0.2rem;
+      }
+
+      .signature .title {
+        font-size: 0.8rem;
+        color: var(--deco-muted);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      @media (max-width: 800px) {
+        .page {
+          padding: 2.2rem 1.6rem 2rem;
+        }
+        .code {
+          font-size: 1.6rem;
+          letter-spacing: 0.22em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="shell">
+      <div class="page">
+        <header>
+          <div class="eyebrow">Sinclair House • Mastic Bayfront</div>
+          <div class="top-line"></div>
+          <h1>Private Ledger Vault</h1>
+          <h2>For Authorized Eyes Only</h2>
+          <div class="mid-line"></div>
+
+          <nav>
+            <a href="index.html">Home</a>
+            <a href="vault.html">Vault</a>
+            <a href="characters.html">Characters</a>
+            <a href="menu.html">Menu</a>
+          </nav>
+        </header>
+
+        <main>
+          <section class="intro">
+            <p>
+              Should you find yourself in need of the inner safe in my study,
+              you will enter the following combination precisely, with a steady
+              hand and a quiet tongue.
+            </p>
+          </section>
+
+          <section class="vault-panel">
+            <div class="label">Vault combination</div>
+            <div class="code-row">
+              <div class="code">5 5 7 3 #</div>
+              <div class="code-caption">
+                Four digits, followed by the final key. Any deviation and the
+                door remains shut; any chatter about it and you may find
+                yourself on the wrong side of the lock.
+              </div>
+            </div>
+            <p class="note">
+              Combination applies to the small wall safe concealed behind the
+              framed chart of Long Island trade routes in the study.
+            </p>
+          </section>
+
+          <section>
+            <div class="label">Discretion</div>
+            <p>
+              This page is <em>not</em> for guests, staff, or sentimental
+              relatives. If you are seeing this, you already know which ledger
+              you seek and why it is better off in the hands of a steady mind.
+            </p>
+          </section>
+
+          <div class="signature">
+            <div class="name">J. W. Sinclair</div>
+            <div class="title">Proprietor, Sinclair Shipping &amp; Storage</div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+</html>
